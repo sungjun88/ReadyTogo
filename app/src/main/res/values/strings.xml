@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ReadyToGo</string>
+    <string-array name="interval_options">
+        <item>5초</item>
+        <item>10초</item>
+        <item>30초</item>
+        <item>60초</item>
+    </string-array>
 </resources>

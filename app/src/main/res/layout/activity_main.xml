@@ -8,11 +8,39 @@
     android:padding="24dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnStartStop"
+    <TextView
+        android:id="@+id/textCurrentTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="시각 알림 시작" />
+        android:text="현재 시간"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <Spinner
+        android:id="@+id/spinnerInterval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/interval_options"
+        android:layout_marginTop="16dp"
+        />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알림 실행" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="16dp" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="정지" />
 
     <Space
         android:layout_width="0dp"
