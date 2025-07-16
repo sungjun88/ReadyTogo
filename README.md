@@ -15,7 +15,7 @@
 2. 에뮬레이터 또는 기기에서 실행
 
 
-# Time Speaker App ⏰🎵
+# Time is running out ⏰🎵
 
 A simple Android app that announces the current time every minute  
 and lets you set your own background music.
