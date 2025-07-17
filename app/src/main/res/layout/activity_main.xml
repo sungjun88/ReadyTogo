@@ -3,66 +3,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textCurrentTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="현재 시간"
-        android:textSize="24sp"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <Spinner
-        android:id="@+id/spinnerInterval"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/interval_options"
-        android:layout_marginTop="16dp"
-        />
-
-    <Button
-        android:id="@+id/btnStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="알림 실행" />
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="16dp" />
-
-    <Button
-        android:id="@+id/btnStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="정지" />
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="16dp" />
-
-    <Button
-        android:id="@+id/btnSelectBgm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BGM 선택" />
-
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="32dp" />
-
-    <TextView
-        android:id="@+id/tvAdPlaceholder"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="(여기에 광고가 들어갈 예정입니다)"
-        android:background="#EEEEEE"
-        android:textColor="#555555" />
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal"
+            android:fitsSystemWindows="false"
+            android:clipToPadding="false"
+            >
+
+            <TextView
+                android:id="@+id/textCurrentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00 PM"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_marginTop="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="알림 간격 설정"
+                android:layout_marginTop="24dp"
+                android:textSize="14sp"
+                android:textColor="#888888"/>
+
+            <Spinner
+                android:id="@+id/spinnerInterval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/spinner_background"
+                android:entries="@array/interval_options"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="146dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStart"
+                    android:layout_width="150dp"
+                    android:layout_height="130dp"
+                    android:text="시작"
+                    android:textSize="35sp"
+                    android:textStyle="bold"                    android:clickable="true"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="16dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    app:iconTint="@android:color/white"
+                    app:backgroundTint="@color/blue_500"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStop"
+                    android:layout_width="150dp"
+                    android:layout_height="130dp"
+                    android:text="종료"
+                    android:textSize="35sp"
+                    android:textStyle="bold"                    android:clickable="true"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="16dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    app:iconTint="@android:color/white"
+                    app:backgroundTint="@color/gray_500"
+                    />
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnSelectBgm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BGM 선택"
+                android:background="@drawable/button_outline"
+                android:textColor="#3F51B5"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:id="@+id/tvAdPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="Ad Placeholder"
+                android:background="#F5F5F5"
+                android:textColor="#999999"
+                android:textSize="14sp"
+                android:drawableTop="@drawable/ic_ad"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

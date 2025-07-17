@@ -1,0 +1,17 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#3366FF"> <!-- ripple overlay 색상 (밝은 파랑 반투명) -->
+
+    <!-- 마스크는 생략 가능 -->
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#007AFF" /> <!-- 💙 파란 배경 -->
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</ripple>

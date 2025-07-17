@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#4A90E2</color> <!-- 세련된 블루 -->
+    <color name="colorPrimaryVariant">#2962FF</color> <!-- 약간 더 진한 느낌 -->
+    <color name="colorOnPrimary">#FFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="gray_500">#9E9E9E</color>
 </resources>

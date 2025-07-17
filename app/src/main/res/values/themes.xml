@@ -1,9 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ReadyToGo" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <style name="Theme.ReadyToGo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- 앱 기본 색상 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
 
-    <style name="Theme.ReadyToGo" parent="Base.Theme.ReadyToGo" />
+        <!-- 상태바 투명화 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!-- 내비게이션바 색상 -->
+        <item name="android:navigationBarColor">@android:color/white</item>
+    </style>
 </resources>

@@ -2,14 +2,17 @@ package com.example.readytogo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -45,7 +48,22 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            getWindow().setDecorFitsSystemWindows(false);
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
+        }
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        );
         setContentView(R.layout.activity_main);
 
         textCurrentTime = findViewById(R.id.textCurrentTime);
@@ -57,15 +75,15 @@ public class MainActivity extends AppCompatActivity {
         spinnerInterval = findViewById(R.id.spinnerInterval);
 
         // ② 옵션 목록 정의 + Adapter 연결 + 기본값 설정
-        String[] intervalOptions = {"5초", "10초", "30초", "60초"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
-                android.R.layout.simple_spinner_item,
-                intervalOptions
+                R.array.interval_options,
+                R.layout.spinner_item  // 우리가 만든 가운데 정렬용 layout
         );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        adapter.setDropDownViewResource(R.layout.spinner_item);
         spinnerInterval.setAdapter(adapter);
-        spinnerInterval.setSelection(2); // 기본값: 30초 선택됨
+        spinnerInterval.setSelection(1); // 기본값: 10초 선택됨
         spinnerInterval.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -84,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                         speakInterval = 60;
                         break;
                 }
-                Toast.makeText(MainActivity.this, selected + " 간격으로 설정됨", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, selected + " 간격으로 설정됨", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -267,9 +285,9 @@ public class MainActivity extends AppCompatActivity {
 
         // 포맷팅해서 문자열 생성
         String timeStr = amPm + " " +
-                hour + "시 " +
-                String.format("%02d", minute) + "분 " +
-                String.format("%02d", second) + "초";
+                hour + " : " +
+                String.format("%02d", minute) + " : " +
+                String.format("%02d", second);
 
         // TextView에 표시
         textCurrentTime.setText(timeStr);
